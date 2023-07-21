@@ -8,13 +8,15 @@ import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Menu from './components/Menu/Menu';
 
+import './styles/index.scss';
+
 function App() {
   const Layout = () => {
     return (
       <div className="main">
         <Navbar />
         <div className="container">
-          <div className="menuContaine">
+          <div className="menuContainer">
             <Menu />
           </div>
           <div className="contentContainer">
