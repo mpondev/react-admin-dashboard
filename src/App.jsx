@@ -1,7 +1,11 @@
-import './App.css';
+import Home from './pages/home/Home';
 
 function App() {
-  return <div>React Admin Dashboard</div>;
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 }
 
 export default App;
