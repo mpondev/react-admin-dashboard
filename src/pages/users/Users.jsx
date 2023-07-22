@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import DataTable from '../../components/dataTable/dataTable';
+import Add from '../../components/add/Add';
 import { userRows } from '../../data';
+
 import './Users.scss';
 
 const columns = [
@@ -9,7 +12,9 @@ const columns = [
     headerName: 'Avatar',
     width: 100,
     renderCell: params => {
-      return <img src={params.row.img || '/noavatar.png'} alt="" />;
+      return (
+        <img src={params.row.img || '/noavatar.png'} alt="no avatar image" />
+      );
     },
   },
   {
@@ -51,13 +56,16 @@ const columns = [
 ];
 
 function Users() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button>Add New User</button>
+        <button onClick={() => setOpen(true)}>Add New User</button>
       </div>
       <DataTable slug="users" columns={columns} rows={userRows} />
+      {open && <Add slug="user" columns={columns} setOpen={setOpen} />}
     </div>
   );
 }
